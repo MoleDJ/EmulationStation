@@ -3,9 +3,20 @@
 #include <boost/filesystem/path.hpp>
 #include <SDL_events.h>
 #ifdef WIN32
+#include <Shlwapi.h>
+#pragma comment(lib, "shlwapi.lib")
 #include <codecvt>
 #endif
 #include <fcntl.h>
+
+std::string GetThisPath()
+{
+	TCHAR dest[MAX_PATH];
+	DWORD length = GetModuleFileName(NULL, dest, MAX_PATH);
+	PathRemoveFileSpec(dest);
+	std::string myString(dest, length);
+	return dest;
+}
 
 std::string getHomePath()
 {
@@ -19,7 +30,7 @@ std::string getHomePath()
 	}
 
 #ifdef WIN32
-	// but does not seem to work for Windows XP or Vista, so try something else
+	homePath = GetThisPath();
 	if (homePath.empty()) {
 		const char * envDir = getenv("HOMEDRIVE");
 		const char * envPath = getenv("HOMEPATH");
