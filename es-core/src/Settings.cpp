@@ -1,9 +1,11 @@
 #include "Settings.h"
 
+#include "utils/FileSystemUtil.h"
 #include "Log.h"
 #include "platform.h"
-#include <boost/filesystem/operations.hpp>
 #include <pugixml/src/pugixml.hpp>
+#include <algorithm>
+#include <vector>
 
 Settings* Settings::sInstance = NULL;
 
@@ -13,6 +15,7 @@ std::vector<const char*> settings_dont_save {
 	{ "Debug" },
 	{ "DebugGrid" },
 	{ "DebugText" },
+	{ "DebugImage" },
 	{ "ForceKid" },
 	{ "ForceKiosk" },
 	{ "IgnoreGamelist" },
@@ -27,7 +30,8 @@ std::vector<const char*> settings_dont_save {
 	{ "ScreenHeight" },
 	{ "ScreenOffsetX" },
 	{ "ScreenOffsetY" },
-	{ "ScreenRotate" }
+	{ "ScreenRotate" },
+	{ "ExePath" }
 };
 
 Settings::Settings()
@@ -72,6 +76,7 @@ void Settings::setDefaults()
 	mBoolMap["Debug"] = false;
 	mBoolMap["DebugGrid"] = false;
 	mBoolMap["DebugText"] = false;
+	mBoolMap["DebugImage"] = false;
 
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
 	mIntMap["ScraperResizeWidth"] = 400;
@@ -95,9 +100,9 @@ void Settings::setDefaults()
 
 	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
-	mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = getHomePath() + "/.emulationstation/slideshow/audio/slideshow_bg.wav";
+	mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = Utils::FileSystem::getHomePath() + "/.emulationstation/slideshow/audio/slideshow_bg.wav";
 	mBoolMap["SlideshowScreenSaverCustomImageSource"] = false;
-	mStringMap["SlideshowScreenSaverImageDir"] = getHomePath() + "/.emulationstation/slideshow/image";
+	mStringMap["SlideshowScreenSaverImageDir"] = Utils::FileSystem::getHomePath() + "/.emulationstation/slideshow/image";
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 
@@ -142,6 +147,8 @@ void Settings::setDefaults()
 	mIntMap["ScreenOffsetX"] = 0;
 	mIntMap["ScreenOffsetY"] = 0;
 	mIntMap["ScreenRotate"]  = 0;
+
+	mStringMap["ExePath"] = "";
 }
 
 template <typename K, typename V>
@@ -162,7 +169,7 @@ void saveMap(pugi::xml_document& doc, std::map<K, V>& map, const char* type)
 void Settings::saveFile()
 {
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
-	const std::string path = getHomePath() + "/.emulationstation/es_settings.cfg";
+	const std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/es_settings.cfg";
 
 	pugi::xml_document doc;
 
@@ -183,9 +190,9 @@ void Settings::saveFile()
 
 void Settings::loadFile()
 {
-	const std::string path = getHomePath() + "/.emulationstation/es_settings.cfg";
+	const std::string path = Utils::FileSystem::getHomePath() + "/.emulationstation/es_settings.cfg";
 
-	if(!boost::filesystem::exists(path))
+	if(!Utils::FileSystem::exists(path))
 		return;
 
 	pugi::xml_document doc;

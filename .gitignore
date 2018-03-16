@@ -34,3 +34,5 @@ Makefile
 .cproject
 .project
 .settings/
+.vs/
+_CPack_Packages/

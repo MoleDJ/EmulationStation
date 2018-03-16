@@ -25,6 +25,9 @@ public:
 	virtual void setCursor(FileData*) = 0;
 
 	virtual bool input(InputConfig* config, Input input) override;
+	void setScrollDir(int dir);
+	void update(int deltaTime);
+	bool scroll();
 	virtual void launch(FileData* game) = 0;
 
 protected:
@@ -33,6 +36,9 @@ protected:
 	TextComponent mHeaderText;
 	ImageComponent mHeaderImage;
 	ImageComponent mBackground;
+	
+	int mScrollDir;
+	int mScrollAccumulator;
 
 	std::vector<GuiComponent*> mThemeExtras;
 

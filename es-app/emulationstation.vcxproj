@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2CE34CA8-A314-36B5-BC0D-81E66B0F47D7}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>emulationstation</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\GitHub\EmulationStation\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">emulationstation.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">emulationstation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\GitHub\EmulationStation\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">emulationstation.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">emulationstation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\GitHub\EmulationStation\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">emulationstation.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">emulationstation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\GitHub\EmulationStation\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">emulationstation.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">emulationstation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\Debug\pugixmld.lib;..\Debug\nanosvgd.lib;winmm.lib;opengl32.lib;glu32.lib;..\Debug\es-cored.lib;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\Debug\pugixmld.lib;..\Debug\nanosvgd.lib;winmm.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/GitHub/EmulationStation/Debug/emulationstation.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/GitHub/EmulationStation/Debug/emulationstation.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\Release\pugixml.lib;..\Release\nanosvg.lib;winmm.lib;opengl32.lib;glu32.lib;..\Release\es-core.lib;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\Release\pugixml.lib;..\Release\nanosvg.lib;winmm.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/GitHub/EmulationStation/Release/emulationstation.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/GitHub/EmulationStation/Release/emulationstation.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\MinSizeRel\pugixml.lib;..\MinSizeRel\nanosvg.lib;winmm.lib;opengl32.lib;glu32.lib;..\MinSizeRel\es-core.lib;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\MinSizeRel\pugixml.lib;..\MinSizeRel\nanosvg.lib;winmm.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/GitHub/EmulationStation/MinSizeRel/emulationstation.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/GitHub/EmulationStation/MinSizeRel/emulationstation.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NOMINMAX;USE_OPENGL_DESKTOP;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\include;D:\GitHub\EmulationStation-libs\lib\FreeImage\Source;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\include;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\include;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\include;D:\GitHub\EmulationStation\external;D:\GitHub\EmulationStation\es-core\src;D:\GitHub\EmulationStation\es-app\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\RelWithDebInfo\pugixml.lib;..\RelWithDebInfo\nanosvg.lib;winmm.lib;opengl32.lib;glu32.lib;..\RelWithDebInfo\es-core.lib;D:\GitHub\EmulationStation-libs\lib\freetype-2.7\objs\vc2010\Win32\freetype27.lib;D:\GitHub\EmulationStation-libs\lib\FreeImage\Dist\x32\FreeImage.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2.lib;D:\GitHub\EmulationStation-libs\lib\SDL2-2.0.5\build\Release\SDL2main.lib;Imm32.lib;version.lib;D:\GitHub\EmulationStation-libs\lib\curl-7.50.3\builds\libcurl-vc14-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlc.lib;D:\GitHub\EmulationStation-libs\lib\libvlc-2.2.2\lib\msvc\libvlccore.lib;..\RelWithDebInfo\pugixml.lib;..\RelWithDebInfo\nanosvg.lib;winmm.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/GitHub/EmulationStation/RelWithDebInfo/emulationstation.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/GitHub/EmulationStation/RelWithDebInfo/emulationstation.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\GitHub\EmulationStation\es-app\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/GitHub/EmulationStation/es-app/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/GitHub/EmulationStation -BD:/GitHub/EmulationStation --check-stamp-file D:/GitHub/EmulationStation/es-app/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/GitHub/EmulationStation/es-app/CMakeLists.txt;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\GitHub\EmulationStation\es-app\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/GitHub/EmulationStation/es-app/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/GitHub/EmulationStation -BD:/GitHub/EmulationStation --check-stamp-file D:/GitHub/EmulationStation/es-app/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/GitHub/EmulationStation/es-app/CMakeLists.txt;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\GitHub\EmulationStation\es-app\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/GitHub/EmulationStation/es-app/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/GitHub/EmulationStation -BD:/GitHub/EmulationStation --check-stamp-file D:/GitHub/EmulationStation/es-app/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/GitHub/EmulationStation/es-app/CMakeLists.txt;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\GitHub\EmulationStation\es-app\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/GitHub/EmulationStation/es-app/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/GitHub/EmulationStation -BD:/GitHub/EmulationStation --check-stamp-file D:/GitHub/EmulationStation/es-app/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/GitHub/EmulationStation/es-app/CMakeLists.txt;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.10\Modules\InstallRequiredSystemLibraries.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.10\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;C:\Program Files\CMake\share\cmake-3.10\Templates\CPackConfig.cmake.in;D:\GitHub\EmulationStation\es-app\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\GitHub\EmulationStation\es-app\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\FileData.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\FileSorts.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\main.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\MetaData.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\PlatformId.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\ScraperCmdLine.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\SystemData.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\VolumeControl.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\Gamelist.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\FileFilterIndex.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\SystemScreenSaver.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\CollectionSystemManager.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\components\AsyncReqComponent.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\components\RatingComponent.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\components\ScraperSearchComponent.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiFastSelect.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiMetaDataEd.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGameScraper.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGamelistOptions.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiScreensaverOptions.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGeneralScreensaverOptions.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiVideoScreensaverOptions.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiSlideshowScreensaverOptions.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiMenu.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiSettings.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiScraperMulti.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiScraperStart.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGamelistFilter.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiCollectionSystemsOptions.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiInfoPopup.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\scrapers\Scraper.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\scrapers\GamesDBScraper.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\BasicGameListView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\DetailedGameListView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\IGameListView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\ISimpleGameListView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\GridGameListView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\VideoGameListView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\SystemView.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\ViewController.cpp"  />
+    <ClCompile Include="D:\GitHub\EmulationStation\es-app\src\views\UIModeController.cpp"  />
+    <ResourceCompile Include="D:\GitHub\EmulationStation\es-app\src\EmulationStation.rc"  />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\EmulationStation.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\FileData.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\FileSorts.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\MetaData.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\PlatformId.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\ScraperCmdLine.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\SystemData.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\VolumeControl.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\Gamelist.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\FileFilterIndex.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\SystemScreenSaver.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\CollectionSystemManager.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\components\AsyncReqComponent.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\components\RatingComponent.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\components\ScraperSearchComponent.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\components\TextListComponent.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiFastSelect.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiMetaDataEd.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGameScraper.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGamelistOptions.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiScreensaverOptions.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGeneralScreensaverOptions.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiVideoScreensaverOptions.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiSlideshowScreensaverOptions.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiMenu.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiSettings.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiScraperMulti.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiScraperStart.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiGamelistFilter.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiCollectionSystemsOptions.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\guis\GuiInfoPopup.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\scrapers\Scraper.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\scrapers\GamesDBScraper.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\BasicGameListView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\DetailedGameListView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\IGameListView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\ISimpleGameListView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\GridGameListView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\gamelist\VideoGameListView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\SystemView.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\ViewController.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\views\UIModeController.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\animations\LaunchAnimation.h" />
+    <ClInclude Include="D:\GitHub\EmulationStation\es-app\src\animations\MoveCameraAnimation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\GitHub\EmulationStation\ZERO_CHECK.vcxproj">
+      <Project>{DF98DCC6-489F-3BB2-84F1-391AF6CB5BCD}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\GitHub\EmulationStation\es-core\es-core.vcxproj">
+      <Project>{8ACC2985-9476-386A-82BF-D096BE823FA2}</Project>
+      <Name>es-core</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\GitHub\EmulationStation\external\nanosvg\nanosvg.vcxproj">
+      <Project>{6411EC13-52C2-3F5D-86F0-BC35B3D14853}</Project>
+      <Name>nanosvg</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\GitHub\EmulationStation\external\pugixml\pugixml.vcxproj">
+      <Project>{B7302F60-2EB2-3E27-A2EE-3407C9ADC699}</Project>
+      <Name>pugixml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

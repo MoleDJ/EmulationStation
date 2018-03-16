@@ -1,54 +1,12 @@
 #include "platform.h"
 
-#include <boost/filesystem/path.hpp>
 #include <SDL_events.h>
 #ifdef WIN32
-#include <Shlwapi.h>
-#pragma comment(lib, "shlwapi.lib")
 #include <codecvt>
+#else
+#include <unistd.h>
 #endif
 #include <fcntl.h>
-
-std::string GetThisPath()
-{
-	TCHAR dest[MAX_PATH];
-	DWORD length = GetModuleFileName(NULL, dest, MAX_PATH);
-	PathRemoveFileSpec(dest);
-	std::string myString(dest, length);
-	return dest;
-}
-
-std::string getHomePath()
-{
-	std::string homePath;
-
-	// this should give you something like "/home/YOUR_USERNAME" on Linux and "C:\Users\YOUR_USERNAME\" on Windows
-	const char * envHome = getenv("HOME");
-	if(envHome != nullptr)
-	{
-		homePath = envHome;
-	}
-
-#ifdef WIN32
-	homePath = GetThisPath();
-	if (homePath.empty()) {
-		const char * envDir = getenv("HOMEDRIVE");
-		const char * envPath = getenv("HOMEPATH");
-		if (envDir != nullptr && envPath != nullptr) {
-			homePath = envDir;
-			homePath += envPath;
-
-			for(unsigned int i = 0; i < homePath.length(); i++)
-				if(homePath[i] == '\\')
-					homePath[i] = '/';
-		}
-	}
-#endif
-
-	// convert path to generic directory seperators
-	boost::filesystem::path genericPath(homePath);
-	return genericPath.generic_string();
-}
 
 int runShutdownCommand()
 {
@@ -98,7 +56,7 @@ void touch(const std::string& filename)
 	if (fp != NULL)
 		fclose(fp);
 #else
-	int fd = open(filename.c_str(), O_CREAT|O_WRONLY, 0644);
+	int fd = open(filename.c_str(), O_CREAT | O_WRONLY, 0644);
 	if (fd >= 0)
 		close(fd);
 #endif

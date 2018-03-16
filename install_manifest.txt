@@ -1,0 +1,9 @@
+/usr/lib/pugixml.lib
+/usr/include/pugixml.hpp
+/usr/include/pugiconfig.hpp
+/usr/lib/cmake/pugixml/pugixml-config.cmake
+/usr/lib/cmake/pugixml/pugixml-config-release.cmake
+/usr/bin/emulationstation.exe
+/usr/bin/msvcp140.dll
+/usr/bin/vcruntime140.dll
+/usr/bin/concrt140.dll

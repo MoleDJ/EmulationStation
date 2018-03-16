@@ -7,6 +7,7 @@
 #include "InputManager.h"
 #include "Log.h"
 #include "Renderer.h"
+#include <algorithm>
 #include <iomanip>
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
@@ -167,6 +168,11 @@ void Window::input(InputConfig* config, Input input)
 	{
 		// toggle TextComponent debug view with Ctrl-T
 		Settings::getInstance()->setBool("DebugText", !Settings::getInstance()->getBool("DebugText"));
+	}
+	else if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL && Settings::getInstance()->getBool("Debug"))
+	{
+		// toggle TextComponent debug view with Ctrl-I
+		Settings::getInstance()->setBool("DebugImage", !Settings::getInstance()->getBool("DebugImage"));
 	}
 	else
 	{

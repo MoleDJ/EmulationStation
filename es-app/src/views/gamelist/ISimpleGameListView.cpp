@@ -6,16 +6,19 @@
 #include "Settings.h"
 #include "Sound.h"
 #include "SystemData.h"
+#include "FileSorts.h"
+
+static const std::string LETTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FileData* root) : IGameListView(window, root),
-	mHeaderText(window), mHeaderImage(window), mBackground(window)
+mHeaderText(window), mHeaderImage(window), mBackground(window)
 {
 	mHeaderText.setText("Logo Text");
 	mHeaderText.setSize(mSize.x(), 0);
 	mHeaderText.setPosition(0, 0);
 	mHeaderText.setHorizontalAlignment(ALIGN_CENTER);
 	mHeaderText.setDefaultZIndex(50);
-	
+
 	mHeaderImage.setResize(0, mSize.y() * 0.185f);
 	mHeaderImage.setOrigin(0.5f, 0.0f);
 	mHeaderImage.setPosition(mSize.x() / 2, 0);
@@ -50,11 +53,12 @@ void ISimpleGameListView::onThemeChanged(const std::shared_ptr<ThemeData>& theme
 		addChild(extra);
 	}
 
-	if(mHeaderImage.hasImage())
+	if (mHeaderImage.hasImage())
 	{
 		removeChild(&mHeaderText);
 		addChild(&mHeaderImage);
-	}else{
+	}
+	else {
 		addChild(&mHeaderText);
 		removeChild(&mHeaderImage);
 	}
@@ -78,18 +82,19 @@ void ISimpleGameListView::onFileChanged(FileData* /*file*/, FileChangeType /*cha
 
 bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
-	if(input.value != 0)
+	if (input.value != 0)
 	{
-		if(config->isMappedTo("a", input))
+		if (config->isMappedTo("a", input))
 		{
 			FileData* cursor = getCursor();
-			if(cursor->getType() == GAME)
+			if (cursor->getType() == GAME)
 			{
 				Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 				launch(cursor);
-			}else{
+			}
+			else {
 				// it's a folder
-				if(cursor->getChildren().size() > 0)
+				if (cursor->getChildren().size() > 0)
 				{
 					mCursorStack.push(cursor);
 					populateList(cursor->getChildrenListToDisplay());
@@ -99,15 +104,17 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 
 			return true;
-		}else if(config->isMappedTo("b", input))
+		}
+		else if (config->isMappedTo("b", input))
 		{
-			if(mCursorStack.size())
+			if (mCursorStack.size())
 			{
 				populateList(mCursorStack.top()->getParent()->getChildren());
 				setCursor(mCursorStack.top());
 				mCursorStack.pop();
 				Sound::getFromTheme(getTheme(), getName(), "back")->play();
-			}else{
+			}
+			else {
 				onFocusLost();
 				SystemData* systemToView = getCursor()->getSystem();
 				if (systemToView->isCollection())
@@ -118,23 +125,42 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 			}
 
 			return true;
-		}else if(config->isMappedTo("right", input))
+		}
+		else if (config->isMappedTo("right", input))
 		{
-			if(Settings::getInstance()->getBool("QuickSystemSelect"))
+			if (Settings::getInstance()->getBool("QuickSystemSelect"))
 			{
 				onFocusLost();
 				ViewController::get()->goToNextGameList();
 				return true;
 			}
-		}else if(config->isMappedTo("left", input))
+			else
+			{
+				if (input.value != 0)
+				{
+					setScrollDir(1);
+				}
+			}
+		}
+		else if (config->isMappedTo("left", input))
 		{
-			if(Settings::getInstance()->getBool("QuickSystemSelect"))
+			if (Settings::getInstance()->getBool("QuickSystemSelect"))
 			{
 				onFocusLost();
 				ViewController::get()->goToPrevGameList();
 				return true;
 			}
-		}else if (config->isMappedTo("x", input))
+			else
+			{
+				if (input.value != 0)
+				{
+					setScrollDir(-1);
+				}
+				return true;
+			}
+
+		}
+		else if (config->isMappedTo("x", input))
 		{
 			// go to random system game
 			FileData* randomGame = getCursor()->getSystem()->getRandomGame();
@@ -143,27 +169,216 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				setCursor(randomGame);
 			}
 			return true;
-		}else if (config->isMappedTo("y", input) && !(UIModeController::getInstance()->isUIModeKid()))
+		}
+		else if (config->isMappedTo("y", input) && !(UIModeController::getInstance()->isUIModeKid()))
 		{
-			if(mRoot->getSystem()->isGameSystem())
+			if (mRoot->getSystem()->isGameSystem())
 			{
-				if(CollectionSystemManager::get()->toggleGameInCollection(getCursor()))
+				if (CollectionSystemManager::get()->toggleGameInCollection(getCursor()))
 				{
 					return true;
 				}
 			}
 		}
 	}
-
+	else
+	{
+		setScrollDir(0);
+	}
 	return IGameListView::input(config, input);
 }
+void ISimpleGameListView::setScrollDir(int dir)
+{
+	mScrollDir = dir;
+	scroll();
+	mScrollAccumulator = -500;
+}
+void ISimpleGameListView::update(int deltaTime)
+{
+	if (mScrollDir != 0)
+	{
+		mScrollAccumulator += deltaTime;
+		while (mScrollAccumulator >= 150)
+		{
+			scroll();
+			mScrollAccumulator -= 150;
+		}
+	}
 
+	GuiComponent::update(deltaTime);
+}
+bool ISimpleGameListView::scroll()
+{
+	const std::vector<FileData*>& list = getCursor()->getParent()->getChildren();
+	// only skip by letter when the sort mode is alphabetical
+	const FileData::SortType& sort = FileSorts::SortTypes.at(0);
+	if (sort.comparisonFunction == &FileSorts::compareName)
+	{
+		std::string currentname = getCursor()->getName();
+		char firstLetter = toupper(currentname[0]);
+		char secondLetter = toupper(currentname[1]);
 
+		if (mScrollDir == 1)
+		{
+			for (auto it = list.cbegin(); it != list.cend(); it++)
+			{
+				std::string name = (*it)->getName();
+				if (toupper(name[0]) == firstLetter)
+				{
+					if (toupper(name[1]) > secondLetter)
+					{
+						setCursor(*it);
+						return true;
+					}
+				}
+				if (toupper(name[0]) > firstLetter)
+				{
+					setCursor(*it);
+					return true;
+				}
+			}
+			setCursor(*list.cbegin());
+		}
+		else if (mScrollDir == -1)
+		{
+			for (auto it = list.cend() - 1; it != list.cbegin(); it--)
+			{
+				std::string name = (*it)->getName();
+				if (toupper(name[0]) == firstLetter)
+				{
+					if (toupper(name[1]) < secondLetter)
+					{
+						setCursor(*it);
+						return true;
+					}
+				}
+				if (toupper(name[0]) < firstLetter)
+				{
+					setCursor(*it);
+					return true;
+				}
+			}
+			setCursor(*(list.cend() -1));
+		}
+		return true;
+	}
+	return false;
+}
+/*
+FileData* ISimpleGameListView::JumpByLetter(FileData* cursor, bool up)
+{
+	const std::vector<FileData*>& list = cursor->getParent()->getChildren();
+	bool twoLetterMode = list.size() > 5000;
+	// only skip by letter when the sort mode is alphabetical
+	const FileData::SortType& sort = FileSorts::SortTypes.at(0);
+	if (sort.comparisonFunction == &FileSorts::compareName)
+	{
+		std::string currentname = cursor->getName();
+		char firstLetter = toupper(currentname[0]);
+		int nextCharIndex = 1;
+		char secondLetter = toupper(currentname[nextCharIndex]);
 
+		while (secondLetter == ' ')
+		{
+			nextCharIndex++;
+			secondLetter = toupper(currentname[nextCharIndex]);
+		}
+		size_t firstLetterId = LETTERS.find(firstLetter);
+		size_t secondLetterId = LETTERS.find(secondLetter);
+		if (up)
+		{
+			if (firstLetterId == std::string::npos)
+			{
+				firstLetterId = 0;//set to [A][]
+				secondLetterId = 0;//set to [][A]
+			}
+			else
+			{
+				if (secondLetterId == std::string::npos)
+				{
+					secondLetterId = 0;//set to [][A]
+				}
+				else
+				{
+					secondLetterId++;//set to [][Next]
+				}
+				if (secondLetterId >= LETTERS.size())
+				{
+					firstLetterId++;//set to [Next][]
+					secondLetterId = 0;//set to [][A]
+				}
+				if (firstLetterId >= LETTERS.size())
+				{
+					firstLetterId = 0;//set to [A][]
+					secondLetterId = 0;//set to [][A]
+				}
+			}
+			// find the first entry in the list that either exactly matches our target letter or is beyond our target letter
+			for (auto it = list.cbegin(); it != list.cend(); it++)
+			{
+				std::string name = (*it)->getName();
+				char checkFirst = name.empty() ? LETTERS[0] : toupper(name[0]);
+				char checkSecond = name.empty() ? LETTERS[0] : toupper(name[1]);
 
+				// if there's an exact match or we've passed it, set the cursor to this one
+				if (checkFirst == LETTERS[firstLetterId] || (sort.ascending && checkFirst > LETTERS[firstLetterId]) || (!sort.ascending && checkFirst < LETTERS[firstLetterId]))
+				{
+					if (checkSecond == LETTERS[secondLetterId] || (sort.ascending && checkSecond > LETTERS[secondLetterId]) || (!sort.ascending && checkSecond < LETTERS[secondLetterId]))
+					{
+						return *it;
+						break;
+					}
+				}
+				else if (sort.ascending && checkFirst > LETTERS[firstLetterId])
+				{
+					secondLetterId = 0;
+				}
+			}
+		}
+		else
+		{
+			if (firstLetterId == std::string::npos)
+			{
+				firstLetterId = LETTERS.size() - 1;//set to [Z][]
+				secondLetterId = LETTERS.size() - 1;//set to [Z][]
+			}
+			else
+			{
+				secondLetterId--;//set to [][Previous]
+				if (secondLetterId < 0)//if no letter
+				{
+					secondLetterId = LETTERS.size() - 1;//set to [][Z]
+					firstLetterId--;//set to [Previous][]
+					if (firstLetterId < 0)
+					{
+						firstLetterId = LETTERS.size() - 1;//set to [Z][]
+					}
+				}
+			}
+			// find the first entry in the list that either exactly matches our target letter or is beyond our target letter
+			for (auto it = list.cend()-1; it != list.cbegin(); it--)
+			{
+				std::string name = (*it)->getName();
+				char checkFirst = name.empty() ? LETTERS[0] : toupper(name[0]);
+				char checkSecond = name.empty() ? LETTERS[0] : toupper(name[1]);
 
+				// if there's an exact match or we've passed it, set the cursor to this one
+				if (checkFirst == LETTERS[firstLetterId] || (sort.ascending && checkFirst < LETTERS[firstLetterId]) || (!sort.ascending && checkFirst > LETTERS[firstLetterId]))
+				{
+					if (checkSecond == LETTERS[secondLetterId] || (sort.ascending && checkSecond < LETTERS[secondLetterId]) || (!sort.ascending && checkSecond > LETTERS[secondLetterId]))
+					{
+						return *it;
+						break;
+					}
+				}
+				else if (sort.ascending && checkFirst < LETTERS[firstLetterId])
+				{
+					secondLetterId = 0;
+				}
+			}
+		}
 
-
-
-
-
+	}
+	return nullptr;
+}
+*/
